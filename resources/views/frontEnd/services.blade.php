@@ -46,8 +46,8 @@ ul#ui-id-1 {
     <!-- Page Content Holder -->
     <div id="content" class="container">
         <!-- Example Striped Rows -->
-        <div class="col-md-8 pt-15 pb-15 pl-30">
-            <div class="btn-group dropdown">
+        <div class="col-md-8 pt-15 pb-15 pl-15">
+            <div class="btn-group dropdown btn-feature">
                 <button type="button" class="btn btn-primary dropdown-toggle" id="exampleBulletDropdown1" data-toggle="dropdown" aria-expanded="false">
                     Download
                 </button>
@@ -56,7 +56,7 @@ ul#ui-id-1 {
                     <a class="dropdown-item" href="javascript:void(0)" role="menuitem" id="download_pdf">Download PDF</a>
                 </div>
             </div>
-            <div class="btn-group dropdown">
+            <div class="btn-group dropdown btn-feature">
                 <button type="button" class="btn btn-primary dropdown-toggle"  id="exampleSizingDropdown2" data-toggle="dropdown" aria-expanded="false">
                     Results Per Page
                 </button>
@@ -66,7 +66,7 @@ ul#ui-id-1 {
                     <a @if(isset($pagination) && $pagination == '50') class="dropdown-item" @else class="dropdown-item drop-paginate" @endif href="javascript:void(0)" role="menuitem">50</a>
                 </div>
             </div>
-            <div class="btn-group dropdown">
+            <div class="btn-group dropdown btn-feature">
                 <button type="button" class="btn btn-primary dropdown-toggle"  id="exampleSizingDropdown2" data-toggle="dropdown" aria-expanded="false">
                     Sort
                 </button>
@@ -76,17 +76,17 @@ ul#ui-id-1 {
                     <a @if(isset($sort) && $sort == 'Distance from Address') class="dropdown-item drop-sort active" @else class="dropdown-item " @endif href="javascript:void(0)" role="menuitem">Distance from Address</a>
                 </div>
             </div>
-            
-            <div class="btn-group">
-                @if(isset($search_results))
-                <p class="m-0"><b>Results: {{$search_results}}</b></p>
-                @endif
-            </div>
-            <div class="btn-group">
+            <div class="btn-group btn-feature">
                 <button type="button" class="btn btn-primary">
                     <i class="icon md-share"></i> Share
                 </button>
             </div>
+            <div class="btn-group btn-feature">
+                @if(isset($search_results))
+                <p class="m-0 btn btn-primary">Results: {{$search_results}}</p>
+                @endif
+            </div>
+            
         </div>
         <div class="col-sm-12">
             <div class="row" >
@@ -120,8 +120,8 @@ ul#ui-id-1 {
                                         @endif
                                     </h4>
                                     <h4><span class="badge bg-blue pl-0">Description:</span> {!! str_limit($service->service_description, 200) !!}</h4>
-                                    <h4><i class="icon md-account font-size-24 vertical-align-top mr-5 pl-20"></i><span class="badge bg-red "> @foreach($service->phone as $phone) {!! $phone->phone_number !!} @endforeach</span></h4>
-                                    <h4><i class="icon md-pin font-size-24 vertical-align-top mr-5 pl-20 "></i><span class="badge bg-blue">
+                                    <h4><span class="badge bg-red "><i class="icon md-account font-size-24 vertical-align-top mr-5 pl-20"></i> @foreach($service->phone as $phone) {!! $phone->phone_number !!} @endforeach</span></h4>
+                                    <h4><span class="badge bg-blue"><i class="icon md-pin font-size-24 vertical-align-top mr-5 pl-20 "></i>
                                         @if(isset($service->address))
                                             @foreach($service->address as $address)
                                             {{ $address->address_1 }} {{ $address->address_2 }} {{ $address->address_city }} {{ $address->address_state_province }} {{ $address->address_postal_code }}

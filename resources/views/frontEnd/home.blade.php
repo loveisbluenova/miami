@@ -64,11 +64,11 @@ Home
                     <h3>Browse by Category</h3>
                 </div>
                 <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-8">
+                    <div class="col-lg-2 col-md-2"></div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                         <div id="accordion">
                             <div class="row">
-                                <div class="col-sm-6 col-md-6 col-xs-12">
+                                <div class="col-12 col-md-6 col-lg-6 col-sm-12">
                                 <!-- Example Collapsed -->
                                     <div class="card">
                                         <div class="card-header">
@@ -223,7 +223,7 @@ Home
                                     </div>
                                 </div>
                             
-                                <div class="col-sm-6">
+                                <div class="col-12 col-md-6 col-lg-6 col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
                                             <a class="collapsed card-link" data-toggle="collapse" href="#collapse8"></a>
@@ -347,10 +347,10 @@ Home
             <div class="container">
                 <div class="inner_search">
                     <div class="row">
-                        <div class="col-sm-4 col-md-4 col-xs-12">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-12">
                             <img src="../frontend/assets/examples/images/searchresult.jpg" alt="" title="">
                         </div>
-                        <div class="col-sm-8 col-xs-12 col-md-8">
+                        <div class="col-sm-12 col-12 col-md-8 col-lg-8">
                             <ul>
                                 <li><b>Georgia Access and Crisis Line ( GCAL ): </b><br/>  1-800-715-4225</li>
                                 <li><b>Crisis Text Line for Youth: </b><br/>

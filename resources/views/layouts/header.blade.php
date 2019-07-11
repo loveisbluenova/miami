@@ -22,16 +22,20 @@
 						</label>
 					</div>
 				@endif  
+				<button type="button" class="navbar-toggler collapsed float-right" data-target="#site-navbar-collapse" data-toggle="collapse">
+					<i class="icon wb-more-horizontal" aria-hidden="true"></i>
+				</button>
 			</div>
-			<div class="navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+			
+			<div class="navbar-collapse navbar-collapse-toolbar collapse " id="site-navbar-collapse">
 				<ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-					<li class="nav-item">
+					<li class="nav-item responsive_menu">
 						<a class="nav-link waves-effect waves-light waves-round" href="/services">Services</a>
 					</li>
-					<li class="nav-item ">
+					<li class="nav-item responsive_menu">
 						<a class="nav-link waves-effect waves-light waves-round" href="/organizations">Organizations</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item responsive_menu">
 						<a class="nav-link waves-effect waves-light waves-round" href="/about">About</a>
 					</li>
 					<li class="nav-item">

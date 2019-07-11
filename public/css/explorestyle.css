@@ -83,7 +83,7 @@ a, a:hover, a:focus {
     padding-left: 20px;
     font-size: 1.1em;
     display: block;
-    color: #424242;
+    color: #fff;
     font-weight: 400;
 }
 #sidebar ul li a:hover {
@@ -261,9 +261,9 @@ li.status-side:hover {
         /*left: 270px;*/
         /*width: calc(100% - 270px);*/
     }
-    #sidebarCollapse span {
+    /* #sidebarCollapse span {
         display: none;
-    }
+    } */
     #btn-filter{
        display: block;
     }
@@ -623,7 +623,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
 }
 #map {
 /*  position: relative;*/
-  width: 33.333333%;
+  width: 100% !important;
   height: 60%;
   z-index: 1;
   box-shadow: 0 1px 6px rgba(57,73,76,.35);
@@ -775,7 +775,8 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
   -o-transition: all .3s linear 0s;
   transition: all .3s linear 0s;
   content: '';
-  color: #fff;
+  color: #fff;    right: auto;
+  display: inline;
   
 }
 .browse_category .card .card-link.collapsed:before { content: '';
@@ -838,3 +839,33 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
 .category_badge .panel-link:nth-child(12) { color: #fff;background-color: #dc3545;}
 .category_badge .panel-link:nth-child(13) { color: #fff;background-color: #343a40;}
 .category_badge .panel-link:nth-child(14) { color: #fff;background-color: #3949ab;}
+
+
+@media (max-width: 1028px) {
+  .browse_category .col-sm-8 {max-width: 100%; flex: 100%;}
+}
+@media (max-width: 767px) {
+  .responsive_menu { display: none;}
+  .navbar-toolbar .nav-item { color:#fff;}
+  .inner_search { text-align: center;}
+  .inner_search ul { margin-top: 20px; text-align:left; padding: 0px;}
+  .footer-menu .feedback-btn.text-right, .footer-content .text-right { text-align: center !important;}
+  .feedback-title, .footer-content  {text-align: center;}
+}
+@media (max-width: 536px) {
+  .example .pagination li {padding: 12px 14px;}
+}
+@media (max-width: 480px) {
+  .example .pagination li {padding: 12px 11px;}
+}
+@media (max-width: 414px) {
+  .page-content { width: 100%;}
+  .example .pagination li { padding: 4px 9px;}
+}
+@media (max-width: 360px) {
+  .page-content { width: 100%;}
+  .example .pagination li { padding: 4px 6px;}
+}
+@media (max-width: 320px) {
+  .browse_category .card .card-link + .card-link { width:89%;}
+}

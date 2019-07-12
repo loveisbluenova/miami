@@ -69,22 +69,17 @@ ul#ui-id-1 {
 
                         {{-- <h4 class="panel-text"><span class="badge bg-red">Alternate Name:</span> {{$organization->organization_alternate_name}}</h4> --}}
 
-                        <h4>
-							<span class="badge bg-blue pl-0">Description:</span>
-						  {{$organization->organization_description}}
-						</h4>
+                        <h4 style="line-height:inherit"> {{$organization->organization_description}}</h4>
 
-                        <h4>
-							<span class="badge bg-red">
-							<i class="icon md-globe font-size-24 vertical-align-top mr-5 pl-20"></i>
+                        <h4 style="line-height: inherit;">
+                        	<span><i class="icon md-globe font-size-24 vertical-align-top  mr-5 pr-10"></i>
 								<a href="{{$organization->organization_url}}" > {{$organization->organization_url}}</a>
 							</span> 
 						</h4>
 
                         @if($organization->organization_phones!='')
-						<h4>
-							<span class="badge bg-red">
-							<i class="icon md-account font-size-24 vertical-align-top mr-5 pl-20"></i>
+						<h4 style="line-height: inherit;">
+                        	<span><i class="icon md-account font-size-24 vertical-align-top  mr-5 pr-10"></i>
 								@foreach($organization->phones as $phone)
 								{!! $phone->phone_number !!}, 
 								@endforeach
@@ -93,8 +88,7 @@ ul#ui-id-1 {
                         @endif
 
                         @if(isset($organization->organization_forms_x_filename))
-                        <h4>
-							<span class="badge bg-red">Referral Forms:</span> 
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Referral Forms:</span>
 							<a href="{{$organization->organization_forms_x_url}}" class="panel-link"> {{$organization->organization_forms_x_filename}}</a>
 						</h4>
                         @endif
@@ -105,20 +99,20 @@ ul#ui-id-1 {
                 @if(isset($organization->services))
                 @foreach($organization->services as $service)
                     <div class="card">
+						<h4 class="btn btn-primary m-0 text-left" style=" border-radius:0; font-size:20px;">Services</h4>
 						<div class="card-block">
 							<h4 class="card-title">
-								<span>Service:</span>
-								<a href="/service/{{$service->service_recordid}}"> {{$service->service_name}}</a>
+								<a href="/service/{{$service->service_recordid}}">{{$service->service_name}}</a>
 							</h4>
-							<h4><span class="badge bg-blue pl-0">Description:</span> {!! str_limit($service->service_description, 200) !!}</h4>
+							<h4 style="line-height: inherit;">{!! str_limit($service->service_description, 200) !!}</h4>
                            
-                            <h4>
-								<span class="badge bg-red "><i class="icon md-account font-size-24 vertical-align-top mr-5 pl-20"></i>
-								 @foreach($service->phone as $phone) {!! $phone->phone_number !!} @endforeach</span>
+                            <h4 style="line-height: inherit;">
+								<span><i class="icon md-account font-size-24 vertical-align-top  mr-5 pr-10"></i>
+								@foreach($service->phone as $phone) {!! $phone->phone_number !!} @endforeach</span>
 							</h4>
 							<h4>
-								<span class="badge bg-blue">
-								<i class="icon md-pin font-size-24 vertical-align-top mr-5 pl-20 "></i>
+								<span>
+								<i class="icon md-pin font-size-24 vertical-align-top  mr-5 pr-10"></i>
                                 @if(isset($service->address))
                                     @foreach($service->address as $address)
                                       {{ $address->address_1 }} {{ $address->address_2 }} {{ $address->address_city }} {{ $address->address_state_province }} {{ $address->address_postal_code }}
@@ -180,27 +174,32 @@ ul#ui-id-1 {
 						<div class="p-10">
 						@if(isset($organization->location))
 							@foreach($organization->location as $location)
-								<h4><span class="badge bg-red "><i class="icon md-gps-dot font-size-24 vertical-align-top  "></i>{{$location->location_name}}</span> </h4>
-								<h4><span class="badge bg-red "><i class="icon md-pin font-size-24 vertical-align-top "></i>
-									
+							<h4>
+								<span><i class="icon fas fa-building font-size-24 vertical-align-top  "></i>
+									{{$location->location_name}}
+								</span> 
+							</h4>
+							<h4>
+								<span><i class="icon md-pin font-size-24 vertical-align-top  "></i>
 									@if(isset($location->address))
 										@foreach($location->address as $address)
 										{{ $address->address_1 }} {{ $address->address_2 }} {{ $address->address_city }} {{ $address->address_state_province }} {{ $address->address_postal_code }}
 										@endforeach
 									@endif
-									</span> 
-								</h4>
-								<h4><span class="badge bg-red "><i class="icon md-account font-size-24 vertical-align-top "></i>
+								</span> 
+							</h4>
+							<h4>
+								<span><i class="icon md-account font-size-24 vertical-align-top  "></i>
 									@foreach($location->phones as $phone)
 									@php 
 										$phones ='';
 										$phones = $phones.$phone->phone_number.','; @endphp
 									@endforeach
 									{{ rtrim($phones, ',') }}
-									</span>
-								</h4>
+								</span>
+							</h4>
 							@endforeach
-							@endif
+						@endif
 						</div>
                 	</div>
               	</div>

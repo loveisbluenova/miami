@@ -47,7 +47,7 @@ ul#ui-id-1 {
                         {{$organization->services->count()}}
                         @else 0 @endif
                     </h4>
-                    <h4><span class="badge bg-blue pl-0">Description:</span> {!! str_limit($organization->organization_description, 200) !!}</h4>
+                    <h4 style="line-height:inherit">{!! str_limit($organization->organization_description, 200) !!}</h4>
                 </div>
             </div>
             @endforeach

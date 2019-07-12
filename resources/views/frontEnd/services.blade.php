@@ -108,7 +108,7 @@ ul#ui-id-1 {
                                     <h4 class="card-title">
                                         <a href="/service/{{$service->service_recordid}}">{{$service->service_name}}</a>
                                     </h4>
-                                    <h4><span class="badge bg-red pl-0 organize_font">Organization:</span>
+                                    <h4><span class="badge bg-red pl-0  pr-0 organize_font">Organization:</span>
                                         @if(isset($service->organizations))                        
                                             @foreach($service->organizations as $organization)
                                                 @if($loop->last)
@@ -119,9 +119,9 @@ ul#ui-id-1 {
                                             @endforeach                       
                                         @endif
                                     </h4>
-                                    <h4><span class="badge bg-blue pl-0">Description:</span> {!! str_limit($service->service_description, 200) !!}</h4>
-                                    <h4><span class="badge bg-red "><i class="icon md-account font-size-24 vertical-align-top mr-5 pl-20"></i> @foreach($service->phone as $phone) {!! $phone->phone_number !!} @endforeach</span></h4>
-                                    <h4><span class="badge bg-blue"><i class="icon md-pin font-size-24 vertical-align-top mr-5 pl-20 "></i>
+                                    <h4>{!! str_limit($service->service_description, 200) !!}</h4>
+                                    <h4><span><i class="icon md-account font-size-24 vertical-align-top  mr-5 pr-10"></i> @foreach($service->phone as $phone) {!! $phone->phone_number !!} @endforeach</span></h4>
+                                    <h4><span><i class="icon md-pin font-size-24 vertical-align-top mr-5 pr-10"></i>
                                         @if(isset($service->address))
                                             @foreach($service->address as $address)
                                             {{ $address->address_1 }} {{ $address->address_2 }} {{ $address->address_city }} {{ $address->address_state_province }} {{ $address->address_postal_code }}
@@ -162,7 +162,6 @@ ul#ui-id-1 {
                     <div class="panel">
                         <div class="panel-body p-0">
                             <div id="map" style="width: 100%; height: 50vh;">
-                                
                             </div>
                         </div>
                     </div>

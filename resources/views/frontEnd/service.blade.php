@@ -57,7 +57,7 @@ ul#ui-id-1 {
                         <h4 class="panel-text"><span class="badge bg-red">Alternate Name:</span> {{$service->service_alternate_name}}</h4>
                         @endif
 
-                        <h4><span class="badge bg-red pl-0 organize_font">Organization:</span>
+                        <h4><span class="badge bg-red pl-0  pr-0 organize_font">Organization:</span>
                             @if($service->service_organization!=0)                        
                                 @foreach($service->organizations as $organization)
                                     @if($loop->last)
@@ -69,12 +69,11 @@ ul#ui-id-1 {
                             @endif
                         </h4>
 
-                        <h4><span class="badge bg-blue pl-0">Description:</span> {!! $service->service_description !!}</h4>
+                        <h4 style="line-height: inherit;">{!! $service->service_description !!}</h4>
 
                         @if(isset($service->phone()->first()->phone_number))  
-                        <h4>
-                            <span class="badge bg-red ">                      
-                            <i class="icon md-account font-size-24 vertical-align-top mr-5 pl-10 pr-10"></i>
+                        <h4 style="line-height: inherit;">
+                            <span><i class="icon md-account font-size-24 vertical-align-top  mr-5 pr-10"></i>
                             @foreach($service->phone as $phone)
                                 @if($loop->last)
                                 {{$phone->phone_number}}
@@ -87,32 +86,31 @@ ul#ui-id-1 {
                         @endif
 
                         @if(isset($service->phone()->first()->phone_extension)) 
-                        <h4>
-                            <span class="badge bg-red ">  
-                            <i class="icon md-account font-size-24 vertical-align-top mr-5 pl-10 pr-10"></i>
+                        <h4 style="line-height: inherit;">
+                            <span><i class="icon md-account font-size-24 vertical-align-top  mr-5 pr-10"></i>
                             @foreach($service->phone as $phone) {!! $phone->phone_extension !!} @endforeach 
                             </span> 
                         </h4>
                         @endif 
-                        <h4>
-                            <span class="badge bg-red ">  
-                            <i class="icon md-globe font-size-24 vertical-align-top mr-5 pl-10 pr-10"></i>
+                        <h4 style="line-height: inherit;">
+                            <span>  
+                            <i class="icon md-globe font-size-24 vertical-align-top  mr-5 pr-10"></i>
                                  @if($service->service_url!=NULL)<a href="{!! $service->service_url !!}">{!! $service->service_url !!}</a> @endif
                             </span>        
                         </h4>
 
                         @if($service->service_email!=NULL) 
-                        <h4>
-                            <span class="badge bg-red "> 
-                            <i class="icon md-email font-size-24 vertical-align-top mr-5 pl-10 pr-10"></i>
+                        <h4 style="line-height: inherit;">
+                            <span> 
+                            <i class="icon md-email font-size-24 vertical-align-top  mr-5 pr-10"></i>
                                  {{$service->service_email}}
                             </span>
                         </h4>
                         @endif 
 
-                        <h4>
-                            <span class="badge bg-red "> 
-                            <i class="icon fa-language font-size-24 vertical-align-top mr-5 pl-10 pr-10"></i>
+                        <h4 style="line-height: inherit;">
+                            <span> 
+                            <i class="icon fa-language  font-size-24 vertical-align-top  mr-5 pr-10"></i>
                             @if(isset($service->languages))                        
                                 @foreach($service->languages as $language)
                                     @if($loop->last)
@@ -124,71 +122,53 @@ ul#ui-id-1 {
                             @endif
                             </span>
                         </h4>
-                            @if($service->service_details!=NULL)
-                                @php
-                                    $show_details = [];
-                                @endphp
-                              @foreach($service->details->sortBy('detail_type') as $detail)
-                                @php
-                                    for($i = 0; $i < count($show_details); $i ++){
-                                        if($show_details[$i]['detail_type'] == $detail->detail_type)
-                                            break;
-                                    }
-                                    if($i == count($show_details)){
-                                        $show_details[$i] = array('detail_type'=> $detail->detail_type, 'detail_value'=> $detail->detail_value);
-                                    }
-                                    else{
-                                        $show_details[$i]['detail_value'] = $show_details[$i]['detail_value'].', '.$detail->detail_value;
-                                    }
-                                @endphp                                
-                              @endforeach
-                              @foreach($show_details as $detail)
-                                <h4><span class="badge bg-red">{{ $detail['detail_type'] }}:</span> {!! $detail['detail_value'] !!}</h4>  
-                              @endforeach
-                            @endif
+                        @if($service->service_details!=NULL)
+                            @php
+                                $show_details = [];
+                            @endphp
+                            @foreach($service->details->sortBy('detail_type') as $detail)
+                            @php
+                                for($i = 0; $i < count($show_details); $i ++){
+                                    if($show_details[$i]['detail_type'] == $detail->detail_type)
+                                        break;
+                                }
+                                if($i == count($show_details)){
+                                    $show_details[$i] = array('detail_type'=> $detail->detail_type, 'detail_value'=> $detail->detail_value);
+                                }
+                                else{
+                                    $show_details[$i]['detail_value'] = $show_details[$i]['detail_value'].', '.$detail->detail_value;
+                                }
+                            @endphp                                
+                            @endforeach
+                            @foreach($show_details as $detail)
+                            <h4><span class="badge bg-red">{{ $detail['detail_type'] }}:</span> {!! $detail['detail_value'] !!}</h4>  
+                            @endforeach
+                        @endif
+                                
+                        @if($service->service_application_process)
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Application:</span><br/>  {!! $service->service_application_process !!}
+                        </h4>
+                        @endif
 
-                    </div>
-                    @if($service->service_application_process)
-                    <div class="card-block project-dates">
-                        <h4 class="project-option-title">Application</h4>
-                        <span class="mb-10"> {!! $service->service_application_process !!}
-                        </span>
-                    </div>
-                    @endif
+                        @if($service->service_wait_time)
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Wait Time:</span><br/>  {{$service->service_wait_time}}</h4>
+                        @endif
 
-                    @if($service->service_wait_time)
-                    <div class="card-block project-dates">
-                        <h4 class="project-option-title">Wait Time</h4>
-                        <span class="mb-10"> {{$service->service_wait_time}}</span>
-                    </div>
-                    @endif
+                        @if($service->service_fees)
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Fees:</span><br/> {{$service->service_fees}}</h4>
+                        @endif
 
-                    @if($service->service_fees)
-                    <div class="card-block project-dates">
-                        <h4 class="project-option-title">Fees</h4>
-                        <span class="mb-10"> {{$service->service_fees}}</span>
-                    </div>
-                    @endif
+                        @if($service->service_accreditations)
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Accreditations </span><br/>{{$service->service_accreditations}}</h4>
+                        @endif
 
-                    @if($service->service_accreditations)
-                    <div class="card-block project-dates">
-                        <h4 class="project-option-title">Accreditations</h4>
-                        <span class="mb-10"> {{$service->service_accreditations}}</span>
-                    </div>
-                    @endif
+                        @if($service->service_licenses)
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Licenses</span><br/>{{$service->service_licenses}}</h4>
+                        @endif
 
-                    @if($service->service_licenses)
-                    <div class="card-block project-dates">
-                        <h4 class="project-option-title">Licenses</h4>
-                        <span class="mb-10"> {{$service->service_licenses}}</span>
-                    </div>
-                    @endif
-
-                        
-                    @if(isset($service->schedules()->first()->schedule_days_of_week)) 
-                    <div class="card-block project-dates">
-                        <h4 class="project-option-title">Schedules</h4>
-                        <span class="mb-10">
+                            
+                        @if(isset($service->schedules()->first()->schedule_days_of_week)) 
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Schedules</span><br/>
                             @foreach($service->schedules as $schedule)
                                 @if($loop->last)
                                 {{$schedule->schedule_days_of_week}} {{$schedule->schedule_opens_at}} {{$schedule->schedule_closes_at}}
@@ -196,11 +176,9 @@ ul#ui-id-1 {
                                 {{$schedule->schedule_days_of_week}} {{$schedule->schedule_opens_at}} {{$schedule->schedule_closes_at}},
                                 @endif
                             @endforeach  
-                        </span>
-                    </div>
-                    @endif
-                    <div class="card-block project-dates">
-                        <h4><span class="pl-0 category_badge">Category : 
+                        </h4>
+                        @endif
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10 pl-0 category_badge">Category: 
                             @if($service->service_taxonomy!=0 || $service->service_taxonomy==null)
                                 @foreach($service->taxonomy as $key => $taxonomy)
                                     @if($loop->last)
@@ -209,11 +187,8 @@ ul#ui-id-1 {
                                     @endif
                                 @endforeach
                             @endif  
-                        </span>  
-  
                         </h4>
                     </div>
-
                 </div>
             </div>
             
@@ -224,7 +199,6 @@ ul#ui-id-1 {
                         <i class="icon md-share"></i> Share
                     </button>
                 </div>
-                
                 <div class="card">
                     <div id="map" style="width:initial;margin: 0;height: 50vh;"></div>
                     <div class="card-block">
@@ -232,10 +206,10 @@ ul#ui-id-1 {
                             @if(isset($service->locations))
                                 @foreach($service->locations as $location)
                                 <h4>
-                                    <span class="badge bg-red "><i class="icon md-gps-dot font-size-24 vertical-align-top  "></i>{{$location->location_name}}</span> 
+                                    <span><i class="icon fas fa-building font-size-24 vertical-align-top  "></i>{{$location->location_name}}</span> 
                                 </h4>
                                 <h4>
-                                    <span class="badge bg-red "><i class="icon md-pin font-size-24 vertical-align-top "></i>@if(isset($location->address))
+                                    <span><i class="icon md-pin font-size-24 vertical-align-top "></i>@if(isset($location->address))
                                         @foreach($location->address as $address)
                                         {{ $address->address_1 }} {{ $address->address_2 }} {{ $address->address_city }} {{ $address->address_state_province }} {{ $address->address_postal_code }}
                                         @endforeach
@@ -243,9 +217,9 @@ ul#ui-id-1 {
                                     </span>
                                 </h4>
                                 
-                                <h4><span class="badge bg-red "><i class="icon fa-clock-o font-size-24 vertical-align-top "></i> {{$location->location_hours}}</span></h4>
-                                <h4><span class="badge bg-red "><i class="icon fa-truck font-size-24 vertical-align-top "></i> {{$location->location_transportation}}</span></h4>
-                                <h4><span class="badge bg-red "><i class="icon md-account font-size-24 vertical-align-top "></i>
+                                <h4><span><i class="icon fa-clock-o font-size-24 vertical-align-top "></i> {{$location->location_hours}}</span></h4>
+                                <h4><span><i class="icon fa-truck font-size-24 vertical-align-top "></i> {{$location->location_transportation}}</span></h4>
+                                <h4><span><i class="icon md-account font-size-24 vertical-align-top "></i>
                                         @foreach($location->phones as $phone)
                                         @php 
                                         $phones ='';
@@ -254,8 +228,8 @@ ul#ui-id-1 {
                                         {{ rtrim($phones, ',') }}
                                     </span>
                                 </h4>  
-                                <h4><span class="badge bg-red">Description:</span> {{$location->location_description}}</h4>
-                                <h4><span class="badge bg-red">Accessibility for disabilities:</span> {{$location->accessibilities()->first()->accessibility}}</h4>
+                                <h4 style="line-height:inherit">{{$location->location_description}}</h4>
+                                <h4><span>Accessibility for disabilities:</span> <br/>{{$location->accessibilities()->first()->accessibility}}</h4>
 
                                     @if(isset($location->schedules()->first()->schedule_days_of_week)) 
                                     <h4 class="panel-text"><span class="badge bg-red">Schedules:</span>

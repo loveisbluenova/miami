@@ -3,10 +3,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 ">
-					<h3 class="feedback-title">{{$layout->contact_text}}</h3>
+					<h3 class="feedback-title mt-20 mb-20">{{$layout->contact_text}}</h3>
 				</div>
 				<div class="col-md-4 feedback-btn text-right">
-					<a href="{{$layout->contact_btn_link}}" target="_blank" class="btn btn-lg mt-30  btn-raised btn-primary waves-effect waves-classic waves-effect waves-classic">{{$layout->contact_btn_label}}</a>
+					<a href="{{$layout->contact_btn_link}}" target="_blank" class="btn pb-5 pt-5 mt-20 mb-20 btn-raised btn-primary waves-effect waves-classic waves-effect waves-classic">{{$layout->contact_btn_label}}</a>
 				</div>
 			</div>
 		</div>

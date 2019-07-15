@@ -108,7 +108,7 @@ ul#ui-id-1 {
                                     <h4 class="card-title">
                                         <a href="/service/{{$service->service_recordid}}">{{$service->service_name}}</a>
                                     </h4>
-                                    <h4><span class="badge bg-red pl-0  pr-0 organize_font">Organization:</span>
+                                    <h4><span class="badge bg-red pl-0  pr-0 organize_font"><b>Organization:</b></span>
                                         @if(isset($service->organizations))                        
                                             @foreach($service->organizations as $organization)
                                                 @if($loop->last)
@@ -119,7 +119,7 @@ ul#ui-id-1 {
                                             @endforeach                       
                                         @endif
                                     </h4>
-                                    <h4>{!! str_limit($service->service_description, 200) !!}</h4>
+                                    <h4  style="line-height: inherit;">{!! str_limit($service->service_description, 200) !!}</h4>
                                     <h4><span><i class="icon md-account font-size-24 vertical-align-top  mr-5 pr-10"></i> @foreach($service->phone as $phone) {!! $phone->phone_number !!} @endforeach</span></h4>
                                     <h4><span><i class="icon md-pin font-size-24 vertical-align-top mr-5 pr-10"></i>
                                         @if(isset($service->address))
@@ -129,7 +129,7 @@ ul#ui-id-1 {
                                         @endif
                                         </span>
                                     </h4>
-                                    <h4><span class="pl-0 category_badge">Category: 
+                                    <h4><span class="pl-0 category_badge"><b>Category:</b><b>
                                         @if($service->service_taxonomy!=0 || $service->service_taxonomy==null)
                                             @foreach($service->taxonomy as $key => $taxonomy)
                                                 @if($loop->last)

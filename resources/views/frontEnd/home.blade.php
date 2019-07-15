@@ -34,7 +34,7 @@ Home
                     <h2 class="brand-text"></h2>
                 </div>
                 <h3 class="text-white">How can we help you?</h3>
-                <form method="post" role="form" autocomplete="off">
+                <form method="post" role="form" autocomplete="off" class="home_serach_form">
                     <div class="form-group text-left form-material" data-plugin="formMaterial">
                         <label for="inputName"><h4 class="text-white">I'm looking for </h4></label>
                         <input type="text" class="form-control" id="inputName" name="name">
@@ -44,11 +44,11 @@ Home
                         <div class="form-group">
                             <div class="input-group">
                                 <button type="submit" class="input-search-btn"><img src="frontend/assets/examples/images/location.png"></button>
-                                <input type="email" class="form-control" id="inputEmail" name="email" >
+                                <input type="email" class="form-control pr-50" id="inputEmail" name="email" >
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Search</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Search</button>
                 </form>
             </div>
         </div>
@@ -343,37 +343,37 @@ Home
 
     <!-- start below after serching div -->
     <div class="after_serach">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-1 col-sm-12 col-md-1"></div>
-					<div class="col-lg-10 col-sm-12 col-md-10">
-						<div class="inner_search">
-							<div class="row">
-								<div class="col-sm-12 col-md-4 col-lg-4 col-12">
-									<img src="../frontend/assets/examples/images/searchresult.jpg" alt="" title="">
-								</div>
-								<div class="col-sm-12 col-12 col-md-8 col-lg-8">
-									<ul>
-										<li><b>Georgia Access and Crisis Line ( GCAL ): </b><br/>  1-800-715-4225</li>
-										<li><b>Crisis Text Line for Youth: </b><br/>
-										Text “HOME” to 74174 ( 24/7 crisi Support)</li>
-										<li><b>National Suicide Prevention Lifeline: </b><br/>
-										1-800-273-8255</li>
-										<li><b>Trevor Project: </b><br/>
-										1-866-488-7386 ( Crisis and Suicide Prevention Support line for LGBTG )</li>
-										<li><b>LGBT Youth Talkline: </b><br/>
-										1-800-246-7743</li>
-										<li><b>Poison Control Hotline: </b><br/>
-										1-800-222-1222</li>
-										<li><b>For all Emergencies, please call 9-1-1.</b></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1 col-sm-12 col-md-1"></div>
+                <div class="col-lg-10 col-sm-12 col-md-10">
+                    <div class="inner_search">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+                                <img src="../frontend/assets/examples/images/searchresult.jpg" alt="" title="">
+                            </div>
+                            <div class="col-sm-12 col-12 col-md-8 col-lg-8">
+                                <ul>
+                                    <li><b>Georgia Access and Crisis Line ( GCAL ): </b><br/>  1-800-715-4225</li>
+                                    <li><b>Crisis Text Line for Youth: </b><br/>
+                                    Text “HOME” to 74174 ( 24/7 crisi Support)</li>
+                                    <li><b>National Suicide Prevention Lifeline: </b><br/>
+                                    1-800-273-8255</li>
+                                    <li><b>Trevor Project: </b><br/>
+                                    1-866-488-7386 ( Crisis and Suicide Prevention Support line for LGBTG )</li>
+                                    <li><b>LGBT Youth Talkline: </b><br/>
+                                    1-800-246-7743</li>
+                                    <li><b>Poison Control Hotline: </b><br/>
+                                    1-800-222-1222</li>
+                                    <li><b>For all Emergencies, please call 9-1-1.</b></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 		<!-- end below after serching div -->
     {{-- <div id="content" class="container m-0" style="width: 100%;">
         <div class=" pt-20 pl-15" style="margin-right: 0">

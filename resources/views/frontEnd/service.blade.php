@@ -54,10 +54,10 @@ ul#ui-id-1 {
                             <a href="#">{{$service->service_name}}</a>
                         </h4>
                         @if(isset($service->service_alternate_name))
-                        <h4 class="panel-text"><span class="badge bg-red">Alternate Name:</span> {{$service->service_alternate_name}}</h4>
+                        <h4><span><b>Alternate Name:</b></span> {{$service->service_alternate_name}}</h4>
                         @endif
 
-                        <h4><span class="badge bg-red pl-0  pr-0 organize_font">Organization:</span>
+                        <h4><span class="badge bg-red pl-0  pr-0 organize_font"><b>Organization:</b></span>
                             @if($service->service_organization!=0)                        
                                 @foreach($service->organizations as $organization)
                                     @if($loop->last)
@@ -141,34 +141,34 @@ ul#ui-id-1 {
                             @endphp                                
                             @endforeach
                             @foreach($show_details as $detail)
-                            <h4><span class="badge bg-red">{{ $detail['detail_type'] }}:</span> {!! $detail['detail_value'] !!}</h4>  
+                            <h4><span class="badge bg-red"><b>{{ $detail['detail_type'] }}:</b></span> {!! $detail['detail_value'] !!}</h4>  
                             @endforeach
                         @endif
                                 
                         @if($service->service_application_process)
-                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Application:</span><br/>  {!! $service->service_application_process !!}
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10"><b>Application:</b></span><br/>  {!! $service->service_application_process !!}
                         </h4>
                         @endif
 
                         @if($service->service_wait_time)
-                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Wait Time:</span><br/>  {{$service->service_wait_time}}</h4>
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10"><b>Wait Time:</b></span><br/>  {{$service->service_wait_time}}</h4>
                         @endif
 
                         @if($service->service_fees)
-                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Fees:</span><br/> {{$service->service_fees}}</h4>
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10"><b>Fees:</b></span><br/> {{$service->service_fees}}</h4>
                         @endif
 
                         @if($service->service_accreditations)
-                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Accreditations </span><br/>{{$service->service_accreditations}}</h4>
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10"><b>Accreditations</b></span><br/>{{$service->service_accreditations}}</h4>
                         @endif
 
                         @if($service->service_licenses)
-                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Licenses</span><br/>{{$service->service_licenses}}</h4>
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10"><b>Licenses</b></span><br/>{{$service->service_licenses}}</h4>
                         @endif
 
                             
                         @if(isset($service->schedules()->first()->schedule_days_of_week)) 
-                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Schedules</span><br/>
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10"><b>Schedules</b></span><br/>
                             @foreach($service->schedules as $schedule)
                                 @if($loop->last)
                                 {{$schedule->schedule_days_of_week}} {{$schedule->schedule_opens_at}} {{$schedule->schedule_closes_at}}
@@ -178,7 +178,7 @@ ul#ui-id-1 {
                             @endforeach  
                         </h4>
                         @endif
-                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10 pl-0 category_badge">Category: 
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10 pl-0 category_badge"><b>Category:</b>
                             @if($service->service_taxonomy!=0 || $service->service_taxonomy==null)
                                 @foreach($service->taxonomy as $key => $taxonomy)
                                     @if($loop->last)
@@ -229,24 +229,20 @@ ul#ui-id-1 {
                                     </span>
                                 </h4>  
                                 <h4 style="line-height:inherit">{{$location->location_description}}</h4>
-                                <h4><span>Accessibility for disabilities:</span> <br/>{{$location->accessibilities()->first()->accessibility}}</h4>
-
+                                <h4><span><b>Accessibility for disabilities:</b></span> <br/>{{$location->accessibilities()->first()->accessibility}}</h4>
                                     @if(isset($location->schedules()->first()->schedule_days_of_week)) 
-                                    <h4 class="panel-text"><span class="badge bg-red">Schedules:</span>
-                                                               
-                                            @foreach($location->schedules as $schedule)
-                                                @if($loop->last)
-                                                {{$schedule->schedule_days_of_week}} {{$schedule->schedule_opens_at}} {{$schedule->schedule_closes_at}}
-                                                @else
-                                                {{$schedule->schedule_days_of_week}} {{$schedule->schedule_opens_at}} {{$schedule->schedule_closes_at}},
-                                                @endif
-                                            @endforeach                       
-                                        
+                                    <h4 class="panel-text"><span class="badge bg-red"><b>Schedules:</b></span>
+                                        @foreach($location->schedules as $schedule)
+                                            @if($loop->last)
+                                            {{$schedule->schedule_days_of_week}} {{$schedule->schedule_opens_at}} {{$schedule->schedule_closes_at}}
+                                            @else
+                                            {{$schedule->schedule_days_of_week}} {{$schedule->schedule_opens_at}} {{$schedule->schedule_closes_at}},
+                                            @endif
+                                        @endforeach                       
                                     </h4>
                                     @endif
                               @endforeach
                             @endif
-
                         </div>
                     </div>
                 </div>

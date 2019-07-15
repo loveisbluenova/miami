@@ -63,7 +63,7 @@ ul#ui-id-1 {
                         </h4>
 
                         <h4>
-							<span class="badge bg-red pl-0 organize_font">Status:</span> 
+							<span class="badge bg-red pl-0 organize_font"><b>Status:</b></span> 
 							{{$organization->organization_status_x}}
 						</h4>
 
@@ -88,7 +88,7 @@ ul#ui-id-1 {
                         @endif
 
                         @if(isset($organization->organization_forms_x_filename))
-                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10">Referral Forms:</span>
+                        <h4 class="py-10" style="line-height: inherit;"><span class="mb-10"><b>Referral Forms:</b></span>
 							<a href="{{$organization->organization_forms_x_url}}" class="panel-link"> {{$organization->organization_forms_x_filename}}</a>
 						</h4>
                         @endif
@@ -99,7 +99,7 @@ ul#ui-id-1 {
                 @if(isset($organization->services))
                 @foreach($organization->services as $service)
                     <div class="card">
-						<h4 class="btn btn-primary m-0 text-left" style=" border-radius:0; font-size:20px;">Services</h4>
+						<h4 class="p-15 m-0 text-left" style=" border-radius:0; font-size:20px; background: #3f51b5;color: #fff;">Services</h4>
 						<div class="card-block">
 							<h4 class="card-title">
 								<a href="/service/{{$service->service_recordid}}">{{$service->service_name}}</a>
@@ -140,10 +140,10 @@ ul#ui-id-1 {
                                 @endphp                                
                               @endforeach
                               @foreach($show_details as $detail)
-                                <h4><span class="badge bg-red">{{ $detail['detail_type'] }}:</span> {!! $detail['detail_value'] !!}</h4>  
+                                <h4><span class="badge bg-red"><b>{{ $detail['detail_type'] }}:</b></span> {!! $detail['detail_value'] !!}</h4>  
                               @endforeach
 							@endif
-							<h4><span class="pl-0 category_badge">Category: 
+							<h4><span class="pl-0 category_badge"><b>Category:</b>
                                 @if($service->service_taxonomy!=0 || $service->service_taxonomy==null)
                                     @foreach($service->taxonomy as $key => $taxonomy)
                                         @if($loop->last)

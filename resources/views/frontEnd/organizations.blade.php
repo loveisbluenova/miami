@@ -36,30 +36,36 @@ ul#ui-id-1 {
     <div id="content" class="container">
         <!-- <div id="map" style="height: 30vh;"></div> -->
         <!-- Example Striped Rows -->
-        <div class="col-sm-12 p-20">
+        <div class="col-sm-12 p-20 card-columns">
             @foreach($organizations as $organization)
             <div class="card">
                 <div class="card-block">
                     <h4 class="card-title">
                         <a href="/organization/{{$organization->organization_recordid}}" class="notranslate">{{$organization->organization_name}}</a>
                     </h4>
-                    <h4>Number of Services: @if(isset($organization->services))
-                        {{$organization->services->count()}}
-                        @else 0 @endif
-                    </h4>
-                    <h4 style="line-height:inherit">{!! str_limit($organization->organization_description, 200) !!}</h4>
+                    <p class="card-text" style="font-weight:400;">
+                        {!! str_limit($organization->organization_description, 200) !!}
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted"><b>Number of Services:</b> 
+                            @if(isset($organization->services))
+                                {{$organization->services->count()}}
+                            @else 0 @endif
+                        </small>
+                    </p>
                 </div>
             </div>
             @endforeach
-            <div class="example">
-                <nav>
-                    {{ $organizations->appends(\Request::except('page'))->render() }}
-                </nav>
-            </div>
-            <!--             
-            <div class="col-md-4 p-0">
-                <div id="map" style="position: fixed !important;width: 28%;"></div>
-            </div> -->
+        </div>
+        <div class="example col-sm-12 ">
+            <nav>
+                {{ $organizations->appends(\Request::except('page'))->render() }}
+            </nav>
+        </div>
+        <!--             
+        <div class="col-md-4 p-0">
+            <div id="map" style="position: fixed !important;width: 28%;"></div>
+        </div> -->
         </div>
     </div>
 </div>

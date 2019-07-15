@@ -809,12 +809,12 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
 .footer-content { background:#3f51b5; }
 .footer-content p{ margin: 0px;}
 .footer-content p a { color: #fff;}
-.card-block { background: #f5f5f5;box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);}
-.card-block span {font-size: 16px;font-weight: 400;white-space:normal;line-height: 26px;display: inline-flex;}
+.card-block { background: #f5f5f5;box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);}
+.card-block span {font-size: 16px;font-weight: 300;white-space:normal;line-height: 26px;display: inline-flex;}
 .card-block span.organize_font {font-size: 14px;font-weight: 400;}
 .card-block .panel-link { font-size:16px;}
-.card-block h4 { font-size: 14px;}
-.card-block h4.card-title {font-size: 20px;}
+.card-block h4 { font-size: 14px;font-weight: 300;}
+.card-block h4.card-title {font-size: 20px;font-weight: 500;}
 .example .pagination li{border-color: #e0e0e0;  border-top-left-radius: .215rem;  border-bottom-left-radius: .215rem;  position: relative; display: block; padding: .643rem 1.072rem; margin-left: -1px; line-height: 1.57142857;color: #757575;background-color: transparent;border: 1px solid #e0e0e0;}
 .example .pagination li.active {color: #fff;background-color: #3f51b5;border-color: #3f51b5;}
 .example .pagination li:hover {background: #f5f5f5;}
@@ -839,6 +839,11 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
 .category_badge .panel-link:nth-child(12) { color: #fff;background-color: #dc3545;}
 .category_badge .panel-link:nth-child(13) { color: #fff;background-color: #343a40;}
 .category_badge .panel-link:nth-child(14) { color: #fff;background-color: #3949ab;}
+.page-register .home_serach_form .form-control{font-size: 1.286rem; color: #fff;}
+.card-columns {-webkit-column-count: 2;column-count: 2;}
+.property .card-block span { font-size:14px;}
+
+
 
 
 @media (max-width: 1028px) {
@@ -851,6 +856,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
   .inner_search ul { margin-top: 20px; text-align:left; padding: 0px;}
   .footer-menu .feedback-btn.text-right, .footer-content .text-right { text-align: center !important;}
   .feedback-title, .footer-content  {text-align: center;}
+  .card-columns {-webkit-column-count: 1;column-count: 1;}
 }
 @media (max-width: 536px) {
   .example .pagination li {padding: 12px 14px;}

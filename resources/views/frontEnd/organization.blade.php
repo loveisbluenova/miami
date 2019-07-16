@@ -99,7 +99,7 @@ ul#ui-id-1 {
                 @if(isset($organization->services))
                 @foreach($organization->services as $service)
                     <div class="card">
-						<h4 class="p-15 m-0 text-left" style=" border-radius:0; font-size:20px; background: #3f51b5;color: #fff;">Services(@if(isset($organization->services)){{$organization->services->count()}}@else 0 @endif)</h4>
+						<h4 class="p-15 m-0 text-left" style=" border-radius:0; font-size:20px; background: #3f51b5;color: #fff;">Services (@if(isset($organization->services)){{$organization->services->count()}}@else 0 @endif)</h4>
 						<div class="card-block">
 							<h4 class="card-title">
 								<a href="/service/{{$service->service_recordid}}">{{$service->service_name}}</a>
